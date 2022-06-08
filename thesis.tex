@@ -1,0 +1,92 @@
+\documentclass{report}
+\input{config.tex}
+\begin{document}
+
+%set double line spacing
+\linespread{1.5}
+
+%cover page information
+
+\thesistitle{Title Here}
+\authorname{SURNAME, First Name}
+\degree{Doctor of Philosophy}
+\programme{***}
+\supervisor{Professor SURNAME, First Name}
+\supervisorlink{}
+\chair{Professor SURNAME, First Name}
+\chairlink{}
+\committee{Professor SURNAME, First Name}
+\committeelink{}
+\examiner{Professor SURNAME, First Name}
+\examinerlink{}
+\submitdate{July 20**}
+\coverpage
+
+
+%=======================================================
+
+\pagenumbering{roman}
+
+%abstract
+
+\abstractpage
+
+%=======================================================
+
+%acknowledgement
+
+\acknowledgementpage
+
+%=======================================================
+
+%dedication
+
+\dedicationpage
+
+%=======================================================
+
+%preamble sections
+
+\tableofcontents
+\listoffigures\addcontentsline{toc}{chapter}{List of Figures}
+\listoftables\addcontentsline{toc}{chapter}{List of Tables}
+
+
+%=======================================================
+
+%initialization
+
+\newpage
+\setcounter{page}{0}
+\pagenumbering{arabic}
+\pagestyle{headings}
+\allowdisplaybreaks
+
+%=======================================================
+
+%insert the chapters
+
+\input ./manuscript.tex
+
+
+%=======================================================
+
+%appendix
+
+% \appendix
+\input ./appendix.tex
+
+
+%=======================================================
+
+%bibliography
+
+\newpage
+\phantomsection
+\addcontentsline{toc}{chapter}{Bibliography}
+\bibliographystyle{asa}
+\bibliography{mybib}
+
+
+
+\end{document}

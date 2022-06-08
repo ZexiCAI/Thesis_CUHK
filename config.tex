@@ -1,0 +1,149 @@
+\usepackage[a4paper,width=170mm,top=25mm,bottom=15mm]{geometry}
+
+\usepackage{graphics}
+\usepackage{thesis}
+\usepackage{latexsym}
+\usepackage{amssymb}
+\usepackage[dvips]{epsfig}
+\graphicspath{{./fig/}}
+
+% Chinese Only Begins
+\usepackage{xeCJK}
+\usepackage{fontspec}
+\setCJKmainfont[BoldFont={FandolHei},ItalicFont={cwTeXKai}]{cwTeXMing}
+% Chinese Only Ends
+
+
+\usepackage{lipsum}
+\usepackage[english]{babel}
+\usepackage{amsmath, amsfonts, amssymb, amsthm, dsfont, graphicx, tabularx, adjustbox, graphics, bbm, mathrsfs, accents, upgreek, enumitem, mathtools, multirow, nameref, natbib, setspace, titlesec}
+\usepackage[dvipsnames]{xcolor}
+\usepackage[page,title]{appendix}
+\usepackage[font=footnotesize,justification=centering]{caption}
+%% todonotes
+\usepackage[colorinlistoftodos,prependcaption,textsize=tiny]{todonotes}
+\usepackage{xargs}
+\newcommandx{\unsure}[2][1=]{\todo[linecolor=red,backgroundcolor=red!25,bordercolor=red,#1]{#2}}
+\newcommandx{\change}[2][1=]{\todo[linecolor=blue,backgroundcolor=blue!25,bordercolor=blue,#1]{#2}}
+\newcommandx{\info}[2][1=]{\todo[linecolor=OliveGreen,backgroundcolor=OliveGreen!25,bordercolor=OliveGreen,#1]{#2}}
+\newcommandx{\improvement}[2][1=]{\todo[linecolor=Plum,backgroundcolor=Plum!25,bordercolor=Plum,#1]{#2}}
+\newcommandx{\thiswillnotshow}[2][1=]{\todo[disable,#1]{#2}}
+
+\usepackage{xr}
+\usepackage[colorlinks=true, allcolors=blue, urlcolor=black, citecolor=blue]{hyperref}
+\usepackage[normalem]{ulem}
+\usepackage{subfiles}
+
+% use International Phonetic Alphabet
+\usepackage{tipa}
+\newcommand{\wt}[1]{\textipa{/#1/}}
+
+% product integral
+\usepackage{prodint}
+
+\usepackage{arydshln}
+% Another combination of values
+\setlength\dashlinedash{1pt}
+\setlength\dashlinegap{2pt}
+
+\usepackage{tabularx,booktabs}
+\newcolumntype{Y}{>{\centering\arraybackslash}X}
+
+% Use these for theorems, lemmas, proofs, etc.
+\theoremstyle{definition} 
+\newtheorem{theorem}{Theorem}%[section] %% subsection can be changed to section
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{claim}[theorem]{Claim}
+\newtheorem{corollary}[theorem]{Corollary}
+\newtheorem{definition}[theorem]{Definition}
+\newtheorem{assumption}[theorem]{Assumption}
+\newtheorem{example}[theorem]{Example}
+\newtheorem{remark}{Remark}
+\newtheorem{exercise}[theorem]{Exercise}
+\newtheorem{observation}[theorem]{Observation}
+\newtheorem*{theorem*}{Theorem}
+\newtheorem*{lemma*}{Lemma}
+\usepackage[nameinlink]{cleveref}
+\crefname{enumi}{}{}
+\Crefname{subsubsubappendix}{Appendix}{Appendices}%
+\makeatletter
+\addto\extrasenglish{\def\itemautorefname{\@gobble}}
+\makeatother
+
+%% code from mathabx.sty and mathabx.dcl
+\DeclareFontFamily{U}{mathx}{\hyphenchar\font45}
+\DeclareFontShape{U}{mathx}{m}{n}{
+      <5> <6> <7> <8> <9> <10>
+      <10.95> <12> <14.4> <17.28> <20.74> <24.88>
+      mathx10
+      }{}
+\DeclareSymbolFont{mathx}{U}{mathx}{m}{n}
+\DeclareFontSubstitution{U}{mathx}{m}{n}
+\DeclareMathAccent{\widecheck}{0}{mathx}{"71}
+\DeclareMathAccent{\wideparen}{0}{mathx}{"75}
+
+
+\usepackage{stackengine}
+\newcommand\xrowht[2][0]{\addstackgap[.5\dimexpr#2\relax]{\vphantom{#1}}}
+
+%% for cross-referncing between files
+% \makeatletter
+% \newcommand*{\addFileDependency}[1]{% argument=file name and extension
+%   \typeout{(#1)}
+%   \@addtofilelist{#1}
+%   \IfFileExists{#1}{}{\typeout{No file #1.}}
+% }
+% \makeatother
+% \newcommand*{\myexternaldocument}[1]{%
+%     \externaldocument{#1}%
+%     \addFileDependency{#1.tex}%
+%     \addFileDependency{#1.aux}%
+% }
+% \myexternaldocument{appendix}
+
+%%% for making comments
+% for easy referencing in the manuscript, comment out when finalize
+% \usepackage[left]{lineno}
+% \usepackage{etoolbox} %% <- for \pretocmd, \apptocmd and \patchcmd
+% \linenumbers
+% %% Patch AMS math environment:
+% \newcommand*\linenomathpatchAMS[1]{%
+%   \expandafter\pretocmd\csname #1\endcsname {\linenomathAMS}{}{}%
+%   \expandafter\pretocmd\csname #1*\endcsname{\linenomathAMS}{}{}%
+%   \expandafter\apptocmd\csname end#1\endcsname {\endlinenomath}{}{}%
+%   \expandafter\apptocmd\csname end#1*\endcsname{\endlinenomath}{}{}%
+% }
+% %% Definition of \linenomathAMS depends on whether the mathlines option is provided
+% \expandafter\ifx\linenomath\linenomathWithnumbers
+%   \let\linenomathAMS\linenomathWithnumbers
+%   %% The following line gets rid of an extra line numbers at the bottom:
+%   \patchcmd\linenomathAMS{\advance\postdisplaypenalty\linenopenalty}{}{}{}
+% \else
+%   \let\linenomathAMS\linenomathNonumbers
+% \fi
+% \linenomathpatchAMS{gather}
+% \linenomathpatchAMS{multline}
+% \linenomathpatchAMS{align}
+% \linenomathpatchAMS{alignat}
+% \linenomathpatchAMS{flalign}
+
+
+
+\setcounter{tocdepth}{3}
+\setcounter{secnumdepth}{3}
+
+\usepackage[titles]{tocloft}
+\cftsetindents{figure}{0em}{3.5em}
+\cftsetindents{table}{0em}{3.5em}
+
+
+
+\def\biblio{\bibliographystyle{asa}\bibliography{bib}}
+
+\topmargin	0.0cm
+\textheight    21cm
+%\renewcommand{\arraystretch}{1.2}
+
+
+%=======================================================
